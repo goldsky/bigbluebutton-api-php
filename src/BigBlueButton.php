@@ -86,17 +86,12 @@ class BigBlueButton
      * @param  CreateMeetingParameters $createMeetingParams
      * @return string
      */
-    public function getCreateMeetingUrl($createMeetingParams)
+    public function getCreateMeetingUrl(CreateMeetingParameters $createMeetingParams)
     {
         return $this->urlBuilder->buildUrl(ApiMethod::CREATE, $createMeetingParams->getHTTPQuery());
     }
 
-    /**
-     * @param  CreateMeetingParameters $createMeetingParams
-     * @return CreateMeetingResponse
-     * @throws \RuntimeException
-     */
-    public function createMeeting($createMeetingParams)
+    public function createMeeting(CreateMeetingParameters $createMeetingParams, $xml = '')
     {
         $xml = $this->processXmlResponse($this->getCreateMeetingUrl($createMeetingParams), $createMeetingParams->getPresentationsAsXML());
 
