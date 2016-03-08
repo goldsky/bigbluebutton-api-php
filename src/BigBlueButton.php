@@ -167,7 +167,7 @@ class BigBlueButton
      *
      * @return string
      */
-    public function getEndMeetingURL($endParams)
+    public function getEndMeetingURL(EndMeetingParameters $endParams)
     {
         return $this->urlBuilder->buildUrl(ApiMethod::END, $endParams->getHTTPQuery());
     }
@@ -196,7 +196,7 @@ class BigBlueButton
      * @param $meetingParams IsMeetingRunningParameters
      * @return string
      */
-    public function getIsMeetingRunningUrl($meetingParams)
+    public function getIsMeetingRunningUrl(IsMeetingRunningParameters $meetingParams)
     {
         return $this->urlBuilder->buildUrl(ApiMethod::IS_MEETING_RUNNING, $meetingParams->getHTTPQuery());
     }
@@ -206,7 +206,7 @@ class BigBlueButton
      * @return IsMeetingRunningResponse
      * @throws \RuntimeException
      */
-    public function isMeetingRunning($meetingParams)
+    public function isMeetingRunning(IsMeetingRunningParameters $meetingParams)
     {
         $xml = $this->processXmlResponse($this->getIsMeetingRunningUrl($meetingParams));
 
@@ -236,7 +236,7 @@ class BigBlueButton
      * @param $meetingParams GetMeetingInfoParameters
      * @return string
      */
-    public function getMeetingInfoUrl($meetingParams)
+    public function getMeetingInfoUrl(GetMeetingInfoParameters $meetingParams)
     {
         return $this->urlBuilder->buildUrl(ApiMethod::GET_MEETING_INFO, $meetingParams->getHTTPQuery());
     }
@@ -246,7 +246,7 @@ class BigBlueButton
      * @return GetMeetingInfoResponse
      * @throws \RuntimeException
      */
-    public function getMeetingInfo($meetingParams)
+    public function getMeetingInfo(GetMeetingInfoParameters $meetingParams)
     {
         $xml = $this->processXmlResponse($this->getMeetingInfoUrl($meetingParams));
 
@@ -264,7 +264,7 @@ class BigBlueButton
      * @param $recordingsParams GetRecordingsParameters
      * @return string
      */
-    public function getRecordingsUrl($recordingsParams)
+    public function getRecordingsUrl(GetRecordingsParameters $recordingsParams)
     {
         return $this->urlBuilder->buildUrl(ApiMethod::GET_RECORDINGS, $recordingsParams->getHTTPQuery());
     }
@@ -285,7 +285,7 @@ class BigBlueButton
      * @param $recordingParams PublishRecordingsParameters
      * @return string
      */
-    public function getPublishRecordingsUrl($recordingParams)
+    public function getPublishRecordingsUrl(PublishRecordingsParameters $recordingParams)
     {
         return $this->urlBuilder->buildUrl(ApiMethod::PUBLISH_RECORDINGS, $recordingParams->getHTTPQuery());
     }
@@ -306,7 +306,7 @@ class BigBlueButton
      * @param $recordingParams DeleteRecordingsParameters
      * @return string
      */
-    public function getDeleteRecordingsUrl($recordingParams)
+    public function getDeleteRecordingsUrl(DeleteRecordingsParameters $recordingParams)
     {
         return $this->urlBuilder->buildUrl(ApiMethod::DELETE_RECORDINGS, $recordingParams->getHTTPQuery());
     }
